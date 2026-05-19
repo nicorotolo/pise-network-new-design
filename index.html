@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PISE Network — Website Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Anton&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/direction-a.css?v=12" />
+<style>
+  html, body { margin: 0; padding: 0; background: #0c0c0d; color: #e6e6e6; font-family: 'Inter', system-ui, sans-serif; }
+  #root { width: 100vw; height: 100vh; }
+  .a-root, .b-root, .c-root { min-width: 1280px; }
+</style>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 56">
+  <rect width="80" height="56" fill="#FBF8F0"/>
+  <rect x="8" y="8" width="64" height="4" rx="2" fill="#B10021" opacity="0.9"/>
+  <rect x="8" y="18" width="44" height="10" rx="2" fill="#0E1116" opacity="0.85"/>
+  <rect x="8" y="32" width="28" height="3" rx="1" fill="#B10021" opacity="0.5"/>
+  <rect x="8" y="38" width="36" height="2" rx="1" fill="#0E1116" opacity="0.2"/>
+  <rect x="8" y="43" width="30" height="2" rx="1" fill="#0E1116" opacity="0.15"/>
+  <rect x="44" y="18" width="28" height="28" rx="4" fill="#E5E0D5"/>
+</svg>
+</template>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components/Logo.jsx"></script>
+<script type="text/babel" src="components/DirectionA.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "heroVariantA": 0,
+  "heroVariantB": 0,
+  "heroVariantC": 0,
+  "accent": "#B10021"
+}/*EDITMODE-END*/;
+
+const ACCENT_OPTIONS = [
+  { label: "Ca' Foscari Red", value: "#C8102E" },
+  { label: "Burgundy", value: "#9C1B2A" },
+  { label: "Brick", value: "#B5341F" },
+  { label: "Vermilion", value: "#E04338" },
+  { label: "Ink Black", value: "#0A0A0A" },
+  { label: "Cobalt (PISE Days)", value: "#1E3FBE" },
+];
+
+function App() {
+  const { values, setValue } = useTweaks(TWEAK_DEFAULTS);
+  const heroLabels = ["Standard", "Photo-led", "Typographic"];
+  const heroLabelsB = ["Cover", "Spread", "Pull-quote"];
+  const heroLabelsC = ["Manifesto", "Asymmetric", "Numbered"];
+
+  return (
+    <>
+      <DesignCanvas title="PISE Network — Website Redesign" subtitle="Three directions · Homepage · Events · About">
+
+        <DCSection id="A" title="Direction A — Modern Academic" subtitle="LSE / Stanford feel · Restrained, structured, photography-forward">
+          <DCArtboard id="a-home" label="A · Homepage" width={1280} height={3800}>
+            <ADirectionHomepage heroVariant={values.heroVariantA} accent={values.accent} />
+          </DCArtboard>
+          <DCArtboard id="a-events" label="A · Events" width={1280} height={2800}>
+            <ADirectionEvents accent={values.accent} />
+          </DCArtboard>
+          <DCArtboard id="a-about" label="A · About" width={1280} height={3000}>
+            <ADirectionAbout accent={values.accent} />
+          </DCArtboard>
+          <DCArtboard id="a-editorial" label="A · Editorial (The PISE Review)" width={1280} height={3400}>
+            <ADirectionEditorial accent={values.accent} />
+          </DCArtboard>
+        </DCSection>
+
+      </DesignCanvas>
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection title="Accent color">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {ACCENT_OPTIONS.map(o => (
+              <button key={o.value}
+                onClick={() => setValue('accent', o.value)}
+                title={o.label}
+                style={{
+                  width: 32, height: 32, borderRadius: '50%',
+                  border: values.accent === o.value ? '2px solid white' : '2px solid #444',
+                  background: o.value, cursor: 'pointer', padding: 0,
+                  outline: values.accent === o.value ? '1px solid #888' : 'none',
+                  outlineOffset: 2,
+                }} />
+            ))}
+          </div>
+          <div style={{ fontSize: 11, color: '#888', marginTop: 8 }}>
+            {ACCENT_OPTIONS.find(o => o.value === values.accent)?.label || 'Custom'}
+          </div>
+        </TweakSection>
+        <TweakSection title="Hero variant">
+          <TweakRadio
+            value={values.heroVariantA}
+            onChange={v => setValue('heroVariantA', Number(v))}
+            options={heroLabels.map((l, i) => ({ label: l, value: i }))} />
+        </TweakSection>
+      </TweaksPanel>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
