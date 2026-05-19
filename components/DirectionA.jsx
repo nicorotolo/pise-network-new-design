@@ -1,4 +1,4 @@
-// =====================================================================
+﻿// =====================================================================
 // DIRECTION A — Modern Academic
 // LSE / Stanford / United Italian Societies feel.
 // Red accent (Ca' Foscari), generous white space, clean grotesk type,
@@ -942,62 +942,62 @@ function ADirectionEvents({ accent = "#C8102E" }) {
 
 function AAboutHero() {
   return (
-    <section className=”a-ab-hero”>
-      <div className=”a-ab-hero-inner”>
-        <div className=”a-ab-hero-top”>
-          <div className=”a-eyebrow”>About</div>
-          <div className=”a-ab-hero-founded”>
-            <span className=”a-ab-hero-est”>est.</span>
-            <span className=”a-ab-hero-year”>2018</span>
+    <section className="a-ab-hero">
+      <div className="a-ab-hero-inner">
+        <div className="a-ab-hero-top">
+          <div className="a-eyebrow">About</div>
+          <div className="a-ab-hero-founded">
+            <span className="a-ab-hero-est">est.</span>
+            <span className="a-ab-hero-year">2018</span>
           </div>
         </div>
-        <h1 className=”a-ab-hero-title”>
+        <h1 className="a-ab-hero-title">
           A bridge between the<br /><em>classroom and the world.</em>
         </h1>
-        <div className=”a-ab-hero-body-row”>
-          <p className=”a-ab-hero-body”>
+        <div className="a-ab-hero-body-row">
+          <p className="a-ab-hero-body">
             PISE Network is the student and alumni community of Ca’ Foscari’s PISE programme —
             connecting people around politics, economics, philosophy and international affairs.
           </p>
-          <div className=”a-ab-hero-stats”>
-            {[[“300+”, “Students & alumni”], [“40+”, “Events since 2022”], [“4”, “Active rubrics”], [“12”, “Partner institutions”]].map(([n, l]) => (
-              <div key={l} className=”a-ab-hero-stat”>
-                <div className=”a-ab-hero-stat-n”>{n}</div>
-                <div className=”a-ab-hero-stat-l”>{l}</div>
+          <div className="a-ab-hero-stats">
+            {[["300+", "Students & alumni"], ["40+", "Events since 2022"], ["4", "Active rubrics"], ["12", "Partner institutions"]].map(([n, l]) => (
+              <div key={l} className="a-ab-hero-stat">
+                <div className="a-ab-hero-stat-n">{n}</div>
+                <div className="a-ab-hero-stat-l">{l}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <div className=”a-ab-hero-rule” />
+      <div className="a-ab-hero-rule" />
     </section>
   );
 }
 
 function AAboutMission() {
   return (
-    <section className=”a-ab-mission”>
-      <div className=”a-ab-mission-inner”>
-        <div className=”a-ab-mission-header”>
-          <span className=”a-section-label”>Mission & Vision</span>
-          <svg className=”a-page-flourish” viewBox=”0 0 140 12” width=”140” height=”12” aria-hidden=”true”><path d=”M0 6 Q 24 0, 48 6 T 96 6 T 140 6” stroke=”currentColor” strokeWidth=”1” fill=”none”/><circle cx=”70” cy=”6” r=”2.4” fill=”currentColor”/></svg>
+    <section className="a-ab-mission">
+      <div className="a-ab-mission-inner">
+        <div className="a-ab-mission-header">
+          <span className="a-section-label">Mission & Vision</span>
+          <svg className="a-page-flourish" viewBox="0 0 140 12" width="140" height="12" aria-hidden="true"><path d="M0 6 Q 24 0, 48 6 T 96 6 T 140 6" stroke="currentColor" strokeWidth="1" fill="none"/><circle cx="70" cy="6" r="2.4" fill="currentColor"/></svg>
         </div>
-        <div className=”a-ab-mission-grid”>
-          <article className=”a-ab-mv”>
-            <span className=”a-ab-mv-num”>i.</span>
-            <h2 className=”a-ab-mv-head”>Mission</h2>
-            <blockquote className=”a-ab-mv-quote”>
-              “To create a bridge between university and the outside world — helping PISE students turn their academic background into <em>real conversations</em>, opportunities, and professional pathways.”
+        <div className="a-ab-mission-grid">
+          <article className="a-ab-mv">
+            <span className="a-ab-mv-num">i.</span>
+            <h2 className="a-ab-mv-head">Mission</h2>
+            <blockquote className="a-ab-mv-quote">
+              "To create a bridge between university and the outside world — helping PISE students turn their academic background into <em>real conversations</em>, opportunities, and professional pathways."
             </blockquote>
-            <div className=”a-ab-mv-foot”>— The board</div>
+            <div className="a-ab-mv-foot">— The board</div>
           </article>
-          <article className=”a-ab-mv”>
-            <span className=”a-ab-mv-num”>ii.</span>
-            <h2 className=”a-ab-mv-head”>Vision</h2>
-            <blockquote className=”a-ab-mv-quote”>
-              “A strong, active, long-lasting community where students and alumni support each other, exchange ideas, and contribute to <em>public debate</em> on politics, economics, society and international affairs.”
+          <article className="a-ab-mv">
+            <span className="a-ab-mv-num">ii.</span>
+            <h2 className="a-ab-mv-head">Vision</h2>
+            <blockquote className="a-ab-mv-quote">
+              "A strong, active, long-lasting community where students and alumni support each other, exchange ideas, and contribute to <em>public debate</em> on politics, economics, society and international affairs."
             </blockquote>
-            <div className=”a-ab-mv-foot”>— The board</div>
+            <div className="a-ab-mv-foot">— The board</div>
           </article>
         </div>
       </div>
@@ -1007,27 +1007,27 @@ function AAboutMission() {
 
 function AAboutTimeline() {
   const events = [
-    { y: “2018”, t: “Founded”, d: “PISE Network is established by a group of first-year PISE students at Ca’ Foscari.” },
-    { y: “2019”, t: “First public talk”, d: “The network hosts its inaugural public talk series, open to the university community.” },
-    { y: “2021”, t: “Editorial launch”, d: “The PISE Lens is launched as the network’s flagship editorial rubric.” },
-    { y: “2022”, t: “PISE Days”, d: “The first edition of PISE Days brings together 8 speakers over two days.” },
-    { y: “2024”, t: “Alumni mentorship”, d: “A formal mentorship programme pairs current students with PISE graduates.” },
-    { y: “2026”, t: “Today”, d: “300+ members, 40+ events, 12 partner institutions, and still growing.”, accent: true },
+    { y: "2018", t: "Founded", d: "PISE Network is established by a group of first-year PISE students at Ca’ Foscari." },
+    { y: "2019", t: "First public talk", d: "The network hosts its inaugural public talk series, open to the university community." },
+    { y: "2021", t: "Editorial launch", d: "The PISE Lens is launched as the network’s flagship editorial rubric." },
+    { y: "2022", t: "PISE Days", d: "The first edition of PISE Days brings together 8 speakers over two days." },
+    { y: "2024", t: "Alumni mentorship", d: "A formal mentorship programme pairs current students with PISE graduates." },
+    { y: "2026", t: "Today", d: "300+ members, 40+ events, 12 partner institutions, and still growing.", accent: true },
   ];
   return (
-    <section className=”a-ab-timeline”>
-      <div className=”a-ab-timeline-inner”>
-        <div className=”a-section-head”>
-          <span className=”a-section-label”>A brief history</span>
+    <section className="a-ab-timeline">
+      <div className="a-ab-timeline-inner">
+        <div className="a-section-head">
+          <span className="a-section-label">A brief history</span>
         </div>
-        <div className=”a-ab-tl-track”>
+        <div className="a-ab-tl-track">
           {events.map((e, i) => (
-            <div key={e.y} className={“a-ab-tl-item” + (e.accent ? “ is-now” : “”)}>
-              <div className=”a-ab-tl-year”>{e.y}</div>
-              <div className=”a-ab-tl-dot” />
-              <div className=”a-ab-tl-body”>
-                <div className=”a-ab-tl-title”>{e.t}</div>
-                <div className=”a-ab-tl-desc”>{e.d}</div>
+            <div key={e.y} className={"a-ab-tl-item" + (e.accent ? " is-now" : "")}>
+              <div className="a-ab-tl-year">{e.y}</div>
+              <div className="a-ab-tl-dot" />
+              <div className="a-ab-tl-body">
+                <div className="a-ab-tl-title">{e.t}</div>
+                <div className="a-ab-tl-desc">{e.d}</div>
               </div>
             </div>
           ))}
@@ -1039,30 +1039,30 @@ function AAboutTimeline() {
 
 function AAboutTeam() {
   const members = [
-    [“Alessandro Rossi”, “President”, “Final-year PISE student. Coordinates board strategy and external partnerships.”],
-    [“Chiara Vianello”, “Editorial Lead”, “Curates the editorial calendar. Writes on European politics and public policy.”],
-    [“Marco De Luca”, “Events”, “Programmes the talk series and PISE Days. Background in cultural management.”],
-    [“Sofia Conti”, “Mentorship”, “Pairs students with alumni mentors. PISE ‘24, now at Crédit Agricole.”],
-    [“Tommaso Greco”, “Partnerships”, “Builds relationships with institutions, NGOs and partner universities.”],
-    [“Elena Furlan”, “Communications”, “Runs the channels and brand. PISE ‘25, design background.”],
+    ["Alessandro Rossi", "President", "Final-year PISE student. Coordinates board strategy and external partnerships."],
+    ["Chiara Vianello", "Editorial Lead", "Curates the editorial calendar. Writes on European politics and public policy."],
+    ["Marco De Luca", "Events", "Programmes the talk series and PISE Days. Background in cultural management."],
+    ["Sofia Conti", "Mentorship", "Pairs students with alumni mentors. PISE ‘24, now at Crédit Agricole."],
+    ["Tommaso Greco", "Partnerships", "Builds relationships with institutions, NGOs and partner universities."],
+    ["Elena Furlan", "Communications", "Runs the channels and brand. PISE ‘25, design background."],
   ];
   return (
-    <section className=”a-ab-team”>
-      <span className=”a-anno a-anno-stamp a-anno-team-stamp”>est. 2018<br/>Venezia</span>
-      <div className=”a-section-head”>
-        <span className=”a-section-label”>The board, 2025 — 26</span>
+    <section className="a-ab-team">
+      <span className="a-anno a-anno-stamp a-anno-team-stamp">est. 2018<br/>Venezia</span>
+      <div className="a-section-head">
+        <span className="a-section-label">The board, 2025 — 26</span>
       </div>
-      <div className=”a-ab-team-grid”>
+      <div className="a-ab-team-grid">
         {members.map(([n, r, b]) => (
-          <article key={n} className=”a-ab-team-card”>
-            <div className=”a-ab-team-photo” />
-            <div className=”a-ab-team-info”>
-              <div className=”a-ab-team-name”>{n}</div>
-              <div className=”a-ab-team-role”>{r}</div>
-              <p className=”a-ab-team-bio”>{b}</p>
-              <div className=”a-ab-team-links”>
-                <a href=”#”>LinkedIn →</a>
-                <a href=”#”>Email →</a>
+          <article key={n} className="a-ab-team-card">
+            <div className="a-ab-team-photo" />
+            <div className="a-ab-team-info">
+              <div className="a-ab-team-name">{n}</div>
+              <div className="a-ab-team-role">{r}</div>
+              <p className="a-ab-team-bio">{b}</p>
+              <div className="a-ab-team-links">
+                <a href="#">LinkedIn →</a>
+                <a href="#">Email →</a>
               </div>
             </div>
           </article>
@@ -1072,11 +1072,11 @@ function AAboutTeam() {
   );
 }
 
-function ADirectionAbout({ accent = “#C8102E” }) {
-  const [lang, setLang] = React.useState(“en”);
+function ADirectionAbout({ accent = "#C8102E" }) {
+  const [lang, setLang] = React.useState("en");
   return (
-    <div className=”a-root a-about-page” style={{ “--a-accent”: accent }}>
-      <ANav active=”About” lang={lang} setLang={setLang} />
+    <div className="a-root a-about-page" style={{ "--a-accent": accent }}>
+      <ANav active="About" lang={lang} setLang={setLang} />
       <AAboutHero />
       <AAboutMission />
       <APillars />
@@ -1225,7 +1225,7 @@ function ADirectionEditorial({ accent = "#C8102E" }) {
 
       {/* —— Pull-quote —— */}
       <section className="a-ed-pullquote">
-        <div className="a-ed-pq-mark">“</div>
+        <div className="a-ed-pq-mark">"</div>
         <blockquote>
           The point of student writing isn’t to imitate the professional press — it’s to think out loud, in public, before the habits of the profession harden.
         </blockquote>
