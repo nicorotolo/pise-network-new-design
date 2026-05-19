@@ -118,16 +118,24 @@ const A_STATS = [
 
 // ---- Building blocks --------------------------------------------------
 
+const NAV_HREFS = {
+  Home:        "index.html",
+  About:       "about.html",
+  Events:      "events.html",
+  Editorial:   "editorial.html",
+  Collaborate: "collaborate.html",
+};
+
 function ANav({ active = "Home", lang, setLang }) {
   return (
     <header className="a-nav">
       <div className="a-nav-inner">
-        <a className="a-brand" href="#">
+        <a className="a-brand" href="index.html">
           <Wordmark size={22} tone="dark" accent="var(--a-accent)" />
         </a>
         <nav className="a-links">
           {A_COPY.en.nav.map((n) =>
-          <a key={n} href="#" className={"a-link " + (n === active ? "is-active" : "")}>
+          <a key={n} href={NAV_HREFS[n] || "#"} className={"a-link " + (n === active ? "is-active" : "")}>
               {n}
             </a>
           )}
@@ -138,7 +146,7 @@ function ANav({ active = "Home", lang, setLang }) {
             <span className="sep">/</span>
             <span className={lang === "it" ? "on" : "off"}>IT</span>
           </button>
-          <a className="a-btn a-btn-primary" href="#">
+          <a className="a-btn a-btn-primary" href="collaborate.html">
             {A_COPY.en.join} <span className="a-arrow">→</span>
           </a>
         </div>
@@ -159,10 +167,10 @@ function AHero({ variant = 0 }) {
             <h1 className="a-h1">{A_COPY.en.heroTitle}</h1>
             <p className="a-lead">{A_COPY.en.heroBody}</p>
             <div className="a-cta-row">
-              <a className="a-btn a-btn-primary a-btn-lg" href="#">
+              <a className="a-btn a-btn-primary a-btn-lg" href="collaborate.html">
                 {A_COPY.en.primaryCta} <span className="a-arrow">→</span>
               </a>
-              <a className="a-btn a-btn-ghost a-btn-lg" href="#">
+              <a className="a-btn a-btn-ghost a-btn-lg" href="editorial.html">
                 {A_COPY.en.secondaryCta}
               </a>
             </div>
@@ -429,10 +437,10 @@ function AJoin() {
         <h2 className="a-h2 a-join-title">{A_COPY.en.joinTitle}</h2>
         <p className="a-join-body">{A_COPY.en.joinBody}</p>
         <div className="a-cta-row">
-          <a className="a-btn a-btn-primary a-btn-lg" href="#">
+          <a className="a-btn a-btn-primary a-btn-lg" href="collaborate.html">
             {A_COPY.en.joinPrimary} <span className="a-arrow">→</span>
           </a>
-          <a className="a-btn a-btn-ghost a-btn-lg" href="#">
+          <a className="a-btn a-btn-ghost a-btn-lg" href="collaborate.html">
             {A_COPY.en.joinSecondary}
           </a>
         </div>
@@ -619,35 +627,32 @@ function AFooter() {
         </div>
         <div className="a-foot-col">
           <div className="a-foot-h">Explore</div>
-          <a href="#">About</a>
-          <a href="#">Events</a>
-          <a href="#">Editorial</a>
-          <a href="#">Collaborate</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="editorial.html">Editorial</a>
+          <a href="collaborate.html">Collaborate</a>
         </div>
         <div className="a-foot-col">
           <div className="a-foot-h">Get involved</div>
-          <a href="#">Become a member</a>
-          <a href="#">Mentorship</a>
-          <a href="#">Write for us</a>
-          <a href="#">Partner with PISE</a>
+          <a href="collaborate.html">Become a member</a>
+          <a href="collaborate.html">Mentorship</a>
+          <a href="editorial.html">Write for us</a>
+          <a href="collaborate.html">Partner with PISE</a>
         </div>
         <div className="a-foot-col">
           <div className="a-foot-h">Follow</div>
           <div className="a-foot-socials">
-            <a href="#" aria-label="Instagram" className="a-foot-soc">
+            <a href="https://www.instagram.com/pise_network_and_alumni/" target="_blank" rel="noopener" aria-label="Instagram" className="a-foot-soc">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="#" aria-label="LinkedIn" className="a-foot-soc">
+            <a href="https://www.linkedin.com/groups/9804209/" target="_blank" rel="noopener" aria-label="LinkedIn" className="a-foot-soc">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5zM.22 8h4.55v13H.22zM8.34 8h4.36v1.78h.06c.61-1.07 2.1-2.2 4.32-2.2 4.62 0 5.47 3.04 5.47 6.99V21h-4.55v-5.96c0-1.42-.03-3.25-1.98-3.25-1.98 0-2.28 1.55-2.28 3.15V21H8.34z"/></svg>
             </a>
-            <a href="#" aria-label="Newsletter" className="a-foot-soc">
+            <a href="#newsletter" aria-label="Newsletter" className="a-foot-soc">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
             </a>
-            <a href="mailto:hello@pisenetwork.com" aria-label="Email" className="a-foot-soc">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 13c1 1.4 2.4 2 4 2s3-.6 4-2"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="15" cy="10" r=".8" fill="currentColor"/></svg>
-            </a>
           </div>
-          <a href="mailto:hello@pisenetwork.com" className="a-foot-email">hello@pisenetwork.com</a>
+          <a href="https://www.instagram.com/pise_network_and_alumni/" target="_blank" rel="noopener" className="a-foot-email">@pise_network_and_alumni</a>
         </div>
       </div>
       <div className="a-foot-base">
@@ -921,6 +926,28 @@ function APastEvents() {
   );
 }
 
+function ACalendarEmbed() {
+  return (
+    <section className="a-calendar-section">
+      <div className="a-section-head">
+        <span className="a-section-label">Live calendar</span>
+        <a
+          className="a-section-more"
+          href="https://calendar.google.com/calendar/u/0/r?cid=5bafd044d7d4022a0eb80ea3694717d3eff047c74b0a39783caaa43efdd20597@group.calendar.google.com"
+          target="_blank" rel="noopener"
+        >Add to Google Calendar <span className="a-arrow">→</span></a>
+      </div>
+      <div className="a-calendar-wrap">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=5bafd044d7d4022a0eb80ea3694717d3eff047c74b0a39783caaa43efdd20597%40group.calendar.google.com&ctz=Europe%2FRome"
+          style={{ border: 0, width: "100%", height: 520, display: "block" }}
+          title="PISE Network Calendar"
+        />
+      </div>
+    </section>
+  );
+}
+
 function ADirectionEvents({ accent = "#C8102E" }) {
   const [lang, setLang] = React.useState("en");
   const [activeFilter, setActiveFilter] = React.useState("All");
@@ -932,6 +959,7 @@ function ADirectionEvents({ accent = "#C8102E" }) {
       <AUpcomingEvents activeFilter={activeFilter} />
       <AEventsProposeCall />
       <APastEvents />
+      <ACalendarEmbed />
       <APhotoStrip />
       <AFooter />
     </div>
@@ -1038,35 +1066,47 @@ function AAboutTimeline() {
 }
 
 function AAboutTeam() {
-  const members = [
-    ["Alessandro Rossi", "President", "Final-year PISE student. Coordinates board strategy and external partnerships."],
-    ["Chiara Vianello", "Editorial Lead", "Curates the editorial calendar. Writes on European politics and public policy."],
-    ["Marco De Luca", "Events", "Programmes the talk series and PISE Days. Background in cultural management."],
-    ["Sofia Conti", "Mentorship", "Pairs students with alumni mentors. PISE ‘24, now at Crédit Agricole."],
-    ["Tommaso Greco", "Partnerships", "Builds relationships with institutions, NGOs and partner universities."],
-    ["Elena Furlan", "Communications", "Runs the channels and brand. PISE ‘25, design background."],
+  const alumni = [
+    { name: "Nicola Rotolo", role: "Co-founder", bio: "PCM, Ministry for Sport and Youth · MSc Philosophy & Public Policy, LSE · MSc Political Economy, Sapienza", img: "assets/team/nicola_rotolo.jpg", li: "https://www.linkedin.com/in/nicolarotolo/", ig: "https://www.instagram.com/nicola.rotolo/" },
+    { name: "Giorgio Sanders", role: "Co-founder", bio: "MAG · MSc student at the London School of Economics", img: "assets/team/giorgio_sanders.jpg", li: "https://www.linkedin.com/in/giorgio-sanders-/", ig: "https://www.instagram.com/giorgio_sanders" },
+    { name: "Andreachiara Borrelli", role: "Alumni", bio: "MSc Political Economy of Europe, LSE · Research Analyst — Int. Businesses and Public Sector", img: "assets/team/andreachiara_borrelli.jpg", li: "http://www.linkedin.com/in/andreachiara-borrelli-418748205" },
+    { name: "Gabriel Rossi", role: "Alumni", bio: "Philosophy and Political Science, Venice · Erasmus Mundus in Economics of Trade", img: "assets/team/gabriel_rossi.jpg", li: "http://www.linkedin.com/in/gabriel-rossi-0316a5246" },
+    { name: "Elena Marinoni", role: "Alumni", bio: "MS Sustainability Transition Management, BBS · ESG Strategy Analyst, Financial Sector", img: "assets/team/elena_marinoni.jpg" },
+    { name: "Bahar Lian Ünar", role: "Alumni", bio: "PISE Alumnus", img: null },
+    { name: "Ayman Zaki", role: "Alumni", bio: "PISE Alumnus", img: null },
   ];
+  const students = [
+    { name: "Arianna Guida", role: "Current student · President VDS", bio: "Current PISE student and President of the Veritas et Scientia association at Ca’ Foscari.", img: "assets/team/arianna_guida.jpg", li: "https://www.linkedin.com/in/ariannaguida/", ig: "https://www.instagram.com/ari.alto" },
+    { name: "Matteo Lais", role: "Current student", bio: "PISE student at Ca’ Foscari University of Venice.", img: "assets/team/matteo_lais.jpg" },
+  ];
+  const Card = ({ m }) => (
+    <article className="a-ab-team-card">
+      <div className="a-ab-team-photo" style={m.img ? { backgroundImage: `url(${m.img})`, backgroundSize: "cover", backgroundPosition: "center top" } : undefined} />
+      <div className="a-ab-team-info">
+        <div className="a-ab-team-name">{m.name}</div>
+        <div className="a-ab-team-role">{m.role}</div>
+        <p className="a-ab-team-bio">{m.bio}</p>
+        <div className="a-ab-team-links">
+          {m.li && <a href={m.li} target="_blank" rel="noopener">LinkedIn →</a>}
+          {m.ig && <a href={m.ig} target="_blank" rel="noopener">Instagram →</a>}
+        </div>
+      </div>
+    </article>
+  );
   return (
     <section className="a-ab-team">
       <span className="a-anno a-anno-stamp a-anno-team-stamp">est. 2018<br/>Venezia</span>
       <div className="a-section-head">
-        <span className="a-section-label">The board, 2025 — 26</span>
+        <span className="a-section-label">Founders & alumni</span>
       </div>
       <div className="a-ab-team-grid">
-        {members.map(([n, r, b]) => (
-          <article key={n} className="a-ab-team-card">
-            <div className="a-ab-team-photo" />
-            <div className="a-ab-team-info">
-              <div className="a-ab-team-name">{n}</div>
-              <div className="a-ab-team-role">{r}</div>
-              <p className="a-ab-team-bio">{b}</p>
-              <div className="a-ab-team-links">
-                <a href="#">LinkedIn →</a>
-                <a href="#">Email →</a>
-              </div>
-            </div>
-          </article>
-        ))}
+        {alumni.map(m => <Card key={m.name} m={m} />)}
+      </div>
+      <div className="a-section-head" style={{ marginTop: 48 }}>
+        <span className="a-section-label">Current students</span>
+      </div>
+      <div className="a-ab-team-grid">
+        {students.map(m => <Card key={m.name} m={m} />)}
       </div>
     </section>
   );
@@ -1253,7 +1293,82 @@ function ADirectionEditorial({ accent = "#C8102E" }) {
     </div>
   );
 }
+function ADirectionCollaborate({ accent = "#B10021" }) {
+  const [lang, setLang] = React.useState("en");
+  const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdzQVSNPTn8wuEiG0l9d5EHgJJOHP3K9QMJPSb_B9uWILes3Q/viewform?usp=sf_link";
+  const ways = [
+    { n: "01", title: "Mentorship", desc: "Become a mentor for current students. Share your experience, your network, and your honest take on life after PISE." },
+    { n: "02", title: "Guest Speaker", desc: "Propose a talk — a research interest, a professional experience, a live question you think is worth discussing in public." },
+    { n: "03", title: "Write for us", desc: "Submit an article, essay, or interview to The PISE Lens. Student and alumni voices only." },
+    { n: "04", title: "Workshops & Skills", desc: "Lead a session on something you know well — public speaking, CV, interview prep, EU policy, or anything your peers would gain from." },
+  ];
+  return (
+    <div className="a-root a-collab-page" style={{ "--a-accent": accent }}>
+      <ANav active="Collaborate" lang={lang} setLang={setLang} />
+
+      <section className="a-collab-hero">
+        <div className="a-collab-hero-inner">
+          <div className="a-eyebrow">Collaborate</div>
+          <h1 className="a-collab-h1">Get involved.</h1>
+          <p className="a-collab-lead">
+            The PISE Network grows through the people who show up for it.
+            Whether you are a student, an alumnus, an academic, or a professional —
+            there is a role for you here.
+          </p>
+          <div className="a-cta-row">
+            <a className="a-btn a-btn-primary a-btn-lg" href={FORM_URL} target="_blank" rel="noopener">
+              Fill in the form <span className="a-arrow">→</span>
+            </a>
+            <a className="a-btn a-btn-ghost a-btn-lg" href="about.html">
+              About the network
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="a-collab-ways">
+        <div className="a-section-head">
+          <span className="a-section-label">Ways to get involved</span>
+        </div>
+        <div className="a-pillars-grid">
+          {ways.map((w) => (
+            <div key={w.n} className="a-pillar">
+              <div className="a-pillar-rule" />
+              <div className="a-pillar-head">
+                <span className="a-pillar-n">{w.n}</span>
+              </div>
+              <h3 className="a-pillar-t">{w.title}</h3>
+              <p className="a-pillar-d">{w.desc}</p>
+              <div className="a-pillar-foot">
+                <a className="a-pillar-cta" href={FORM_URL} target="_blank" rel="noopener">get involved →</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="a-ev-propose">
+        <div className="a-ev-propose-inner">
+          <div className="a-ev-propose-mark">"</div>
+          <div className="a-ev-propose-body">
+            <p className="a-ev-propose-text">
+              We are always open to new ideas.<br />
+              <em>If you have something to bring — get in touch.</em>
+            </p>
+            <a className="a-btn a-btn-primary" href={FORM_URL} target="_blank" rel="noopener">
+              Contact us <span className="a-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <AFooter />
+    </div>
+  );
+}
+
 window.ADirectionHomepage = ADirectionHomepage;
 window.ADirectionEvents = ADirectionEvents;
 window.ADirectionAbout = ADirectionAbout;
 window.ADirectionEditorial = ADirectionEditorial;
+window.ADirectionCollaborate = ADirectionCollaborate;
